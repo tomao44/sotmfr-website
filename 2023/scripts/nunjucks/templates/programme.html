@@ -4,7 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>State of the Map France 2023 - Mentions légales</title>
+        <title>State of the Map France 2023 - Programme</title>
         <meta name="viewport" content="width=device-width" />
         <meta name="theme-color" content="#592123" />
         <link rel="icon" href="assets/img/favicon.ico" />
@@ -18,8 +18,15 @@
         <!-- Bootstrap Core JavaScript with Popper -->
         <script src="assets/js/bootstrap.bundle.min.js"></script>
 
+        <!-- leaflet -->
+        <script src="assets/js/leaflet.js"></script>
+        <link rel="stylesheet" href="assets/css/leaflet.css" />
+
         <!--  Custom Css  -->
         <link rel="stylesheet" href="assets/css/main.css" />
+
+        <!-- Programme -->
+        <script src="assets/js/programme.js"></script>
     </head>
 
     <body id="page-top">
@@ -50,18 +57,13 @@
                             <a class="nav-link" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <li class="nav-item">
-                                <a class="nav-link" href="programme.html">Programme</a>
-                            </li>
-                            <a class="nav-link" href="contribution.html">Appel à contributions</a>
+                            <a class="nav-link" href="programme.html">Programme</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="inscription.html">Inscription</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="sponsors.html"
-                                >Soutiens <span class="visually-hidden"> (page actuelle)</span></a
-                            >
+                            <a class="nav-link" href="sponsors.html">Soutiens</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="infos.html">Infos pratiques</a>
@@ -71,17 +73,42 @@
             </div>
         </nav>
 
-        <!-- About Section -->
-        <section id="main" class="sponsor-page">
+        <!-- Program Section -->
+        <section id="main" class="page program-page">
             <div class="container">
                 <div class="row">
-                    <div class="col">
-                        <h1>Appel à contributions</h1>
-                        <div class="row bg-white text-center">
-                            <div class="col py-5 text-dark">
-                                <p class="fw-medium">L'appel à contributions est clôturé.</p>
-                                <p>Si vous souhaitez nous contacter, merci d'utiliser l'adresse <a href="mailto:sotm@openstreetmap.fr">sotm@openstreetmap.fr</a>.</p>
-                            </div>
+                    <div class="col-12 pb-2">
+                        <h1>Programme</h1>
+                        <p>
+                            Le programme est disponible en
+                            <a href="assets/SOTM-FR_2023_programme.pdf">
+                                téléchargement
+                                <span class="ms-1"
+                                    ><img
+                                        src="assets/img/file-pdf-regular.svg"
+                                        alt="fichier pdf"
+                                        style="width: 1em" /></span
+                            ></a>
+                        </p>
+                        <p>
+                            Vous pouvez aussi télécharger le
+                            <a href="assets/SOTM-FR_2023_guide_des_interventions.pdf">
+                                guide des interventions avec les résumés<span class="ms-1"
+                                ><img
+                                    src="assets/img/file-pdf-regular.svg"
+                                    alt="fichier pdf"
+                                    style="width: 1em" /></span
+                        ></a>
+                        </p>
+                        <h3>Conférences</h3>
+                        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 gy-3">
+                            <!-- Generated, do not edit this part manually. Instructions in the README. -->
+                            {% import "scripts/nunjucks/macros/conference.njk" as macros %}
+                            {% for conf in conferencesData %}
+                                {{ macros.conferenceCard(conf) }}
+                            {% else %}
+                                No Conf.
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
