@@ -6,7 +6,6 @@ env:
   YEAR: "2024"
 
 on:
-  # Runs on pull request targeting the default branch
   pull_request:
     branches: ["master"]
 
